@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodExpress - Food Delivery</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+       <script>
+        (function () {
+            emailjs.init("y9lQA17aFZD1PgLlL"); // Replace with your EmailJS user ID
+        })();
+    </script>
+    
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-utensils"></i>
+                FoodExpress
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for restaurants, dishes..." id="searchInput">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#restaurants" class="nav-link">Restaurants</a></li>
+                <li class="nav-item"><a href="#offers" class="nav-link">Offers</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <div class="user-section" id="userSection">
+                    <button class="login-btn" id="loginBtn">Login</button>
+                    <div class="user-menu" id="userMenu" style="display: none;">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span class="user-name" id="userName"></span>
+                        <div class="user-dropdown">
+                            <button class="dropdown-item" id="profileBtn">
+                                <i class="fas fa-user"></i> Profile
+                            </button>
+                            <button class="dropdown-item" id="ordersBtn">
+                                <i class="fas fa-receipt"></i> Orders
+                            </button>
+                            <button class="dropdown-item" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Craving Something Delicious?</h1>
+            <p class="hero-subtitle">Order from your favorite restaurants and get it delivered in 30 minutes</p>
+            <div class="location-search">
+                <div class="location-input">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input type="text" placeholder="Enter your delivery address" id="locationInput">
+                </div>
+                <button class="find-food-btn">Find Food</button>
+            </div>
+        </div>
+      <div class="circle-carousel">
+    <div class="circle-carousel">
+    <img src="/images/im2.jpg" class="active" />
+    <img src="/images/im1.jpg" />
+    <img src="/images/im3.png" />
+    <img src="/images/im5.jpg" />
+  </div>
+  </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">What's on your mind?</h2>
+            <div class="categories-grid">
+                <div class="category-card" data-category="pizza">
+                    <img src="/images/pizza1.jpg" alt="Pizza">
+                    <h3>Pizza</h3>
+                </div>
+                <div class="category-card" data-category="burger">
+                    <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150" alt="Burger">
+                    <h3>Burger</h3>
+                </div>
+                <div class="category-card" data-category="chinese">
+                    <img src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150" alt="Chinese">
+                    <h3>Chinese</h3>
+                </div>
+                <div class="category-card" data-category="indian">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150" alt="Indian">
+                    <h3>Indian</h3>
+                </div>
+                <div class="category-card" data-category="dessert">
+                    <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150" alt="Desserts">
+                    <h3>Desserts</h3>
+                </div>
+                <div class="category-card" data-category="drinks">
+                    <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150" alt="Drinks">
+                    <h3>Drinks</h3>
+                </div>
+                                <div class="category-card" data-category="drinks">
+                    <img src="/images/combo1.jpg" alt="Drinks">
+                    <h3>Combos</h3>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section id="offers" class="offers">
+        <div class="container">
+            <h2 class="section-title">Special Offers</h2>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-content">
+                        <h3>50% OFF</h3>
+                        <p>On your first order</p>
+                        <span class="offer-code">Use code: FIRST50</span>
+                    </div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-content">
+                        <h3>Free Delivery</h3>
+                        <p>On orders above $25</p>
+                        <span class="offer-code">No code required</span>
+                    </div>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-content">
+                        <h3>Buy 2 Get 1</h3>
+                        <p>On selected items</p>
+                        <span class="offer-code">Use code: BUY2GET1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Restaurants Section -->
+    <section id="restaurants" class="restaurants">
+        <div class="container">
+            <h2 class="section-title">Top Restaurants Near You</h2>
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All</button>
+                <button class="filter-tab" data-filter="fast-food">Fast Food</button>
+                <button class="filter-tab" data-filter="pizza">Pizza</button>
+                <button class="filter-tab" data-filter="indian">Indian</button>
+                <button class="filter-tab" data-filter="chinese">Chinese</button>
+                 <button class="filter-tab" data-filter="combos">Combos</button>
+            </div>
+            <div class="restaurants-grid" id="restaurantsGrid">
+                <!-- Restaurants will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Need Help?</h3>
+                    <p>We're here to help you with your food delivery needs!</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 9410467168</span>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <span>kirtisinghal0304@gmail.com</span>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-clock"></i>
+                            <span>24/7 Customer Support</span>
+                        </div>
+                    </div>
+                </div>
+             <div class="contact-form">
+  <form id="contactForm" action="https://formspree.io/f/xkgblakd" method="POST">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" class="form-control" required></textarea>
+    </div>
+
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Your Cart</h3>
+                <div style="display: flex; gap: 1rem; align-items: center;">
+                    <button class="clear-cart-btn" id="clearCartBtn" onclick="clearCart()" style="
+                        background: rgba(255, 255, 255, 0.2);
+                        border: none;
+                        color: white;
+                        padding: 0.5rem 1rem;
+                        border-radius: 20px;
+                        cursor: pointer;
+                        font-size: 0.9rem;
+                        transition: all 0.3s ease;
+                    " onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'">
+                        <i class="fas fa-trash"></i> Clear
+                    </button>
+                    <button class="close-cart" id="closeCart">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total: $<span id="cartTotal">0.00</span></span>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Restaurant Modal -->
+    <div class="restaurant-modal" id="restaurantModal">
+        <div class="restaurant-content">
+            <div class="restaurant-header">
+                <button class="close-restaurant" id="closeRestaurant">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="restaurant-info" id="restaurantInfo">
+                    <!-- Restaurant info will be populated by JavaScript -->
+                </div>
+            </div>
+            <div class="menu-items" id="menuItems">
+                <!-- Menu items will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-content">
+            <div class="auth-header">
+                <h2 id="authTitle">Welcome Back</h2>
+                <button class="close-auth" id="closeAuth">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="auth-body">
+                <!-- Login Form -->
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email" placeholder="Email Address" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password" placeholder="Password" required />
+                        </div>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="remember">
+                            <span class="checkmark"></span>
+                            Remember me
+                        </label>
+                        <a href="#" class="forgot-link">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="auth-btn">Sign In</button>
+                </form>
+
+                <!-- Signup Form -->
+                <form class="auth-form" id="signupForm" style="display: none;">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" name="fullName" placeholder="Full Name" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email" placeholder="Email Address" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" name="phone" placeholder="Phone Number" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password" placeholder="Password" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
+                        </div>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="terms" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#">Terms & Conditions</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="auth-btn">Create Account</button>
+                </form>
+
+                <div class="auth-divider">
+                    <span>or continue with</span>
+                </div>
+
+                <div class="social-auth">
+                    <button class="social-btn google-btn">
+                        <i class="fab fa-google"></i>
+                        Google
+                    </button>
+                    <button class="social-btn facebook-btn">
+                        <i class="fab fa-facebook-f"></i>
+                        Facebook
+                    </button>
+                </div>
+
+                <div class="auth-switch">
+                    <p id="authSwitchText">Don't have an account? <a href="#" id="authSwitchLink">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FoodExpress</h3>
+                    <p>Delivering happiness to your doorstep</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#restaurants">Restaurants</a></li>
+                        <li><a href="#offers">Offers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FoodExpress. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
