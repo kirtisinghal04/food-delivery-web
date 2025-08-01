@@ -446,10 +446,7 @@ class AuthSystem {
                             <span style="color: var(--text-light);">Member Since:</span>
                             <span style="color: var(--text-color); font-weight: 500;">${new Date(this.currentUser.joinDate).toLocaleDateString()}</span>
                         </div>
-                        <div class="info-item" style="display: flex; justify-content: space-between; padding: 1rem 0;">
-                            <span style="color: var(--text-light);">Total Orders:</span>
-                            <span style="color: var(--primary-color); font-weight: 600;">${this.currentUser.orders ? this.currentUser.orders.length : 0}</span>
-                        </div>
+                        
                     </div>
                     <div style="margin-top: 2rem; text-align: center;">
                         <button onclick="document.getElementById('profileModal').remove()" style="
@@ -619,10 +616,12 @@ const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('.nav-menu');
 
 navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    navToggle.classList.toggle('active');
+  navMenu.classList.toggle('active');
 });
 
+function toggleMenu() {
+document.querySelector('.menu').classList.toggle('active');
+}
 // Render restaurants
 function renderRestaurants(restaurantsToShow = restaurants) {
     const restaurantsGrid = document.getElementById('restaurantsGrid');
