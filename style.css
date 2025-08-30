@@ -128,10 +128,10 @@ body {
     z-index: 1;
 }
 
-.search-btn {
-    position: absolute;
+/* .search-btn {
+    position: relative;
     right: 5px;
-    top: 50%;
+    top: 80%;
     transform: translateY(-50%);
     background: var(--gradient-primary);
     color: white;
@@ -147,7 +147,7 @@ body {
 .search-btn:hover {
     transform: translateY(-50%) scale(1.1);
     box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
-}
+} */
 
 .search-suggestions {
     position: absolute;
@@ -157,7 +157,7 @@ body {
     background: var(--card-bg);
     border-radius: 15px;
     box-shadow: 0 10px 30px var(--shadow);
-    z-index: 1000;
+    z-index: 2000;
     max-height: 300px;
     overflow-y: auto;
     display: none;
